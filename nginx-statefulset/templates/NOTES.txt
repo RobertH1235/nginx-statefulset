@@ -1,0 +1,8 @@
+1. Get the NGINX service IP:
+
+   export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "nginx-statefulset.fullname" . }} -o jsonpath='{.spec.clusterIP}')
+   echo "NGINX Service IP: $SERVICE_IP"
+
+2. Visit the NGINX default page using the service IP:
+
+   echo "http://$SERVICE_IP/"
