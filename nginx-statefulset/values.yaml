@@ -21,13 +21,17 @@ resources:
     memory: "128Mi"
 
 persistence:
-  enabled: true
+  enabled: false
   storageClassName: default
   accessMode: ReadWriteOnce
   size: 1Gi
 
 nodeSelector: {}
 
-tolerations: []
+tolerations:
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: tester
 
 affinity: {}
